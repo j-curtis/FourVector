@@ -3,6 +3,7 @@
 //02/11/16
 
 #include <iostream>
+#include "ThreeVector.h"
 
 #ifndef FOURVECTOR_H
 #define FOURVECTOR_H
