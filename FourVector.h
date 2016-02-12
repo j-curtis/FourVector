@@ -3,7 +3,6 @@
 //02/11/16
 
 #include <iostream>
-#include <fstream>
 
 #ifndef FOURVECTOR_H
 #define FOURVECTOR_H
@@ -22,8 +21,11 @@ public:
 	//Default values are zeros
 
 	double operator *(const FourVector&,const FourVector&);	//The Lorentz invaraint contraction of two fourvectors
+	
 	FourVector& operator +(const FourVector&, const FourVector&);	//This adds two fourvectors component-wise
 	FourVector& operator *(const double,const FourVector&);	//Scalar multiplication of four vectors 
 	FourVector& operator -(const FourVector& lh, const FourVector& rh);	//This subtracts two fourvectors component wise 
+
+	void Print();	//Prints the vector to cout
 };
 #endif

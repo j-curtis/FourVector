@@ -42,3 +42,12 @@ FourVector& FourVector::operator *(const double c, const FourVector& rh){
 
 	return &vec;
 }
+
+FourVector& FourVector::operator -(const FourVector& lh, const FourVector& rh){
+	return (lh + ( (-1.0)*rh ) );	//Subtraction as addition of additive inverse 
+}
+
+
+void FourVector::Print(){
+	std::cout<<"("<<t<<", "<<x<<", "<<y<<", "<<z<<")";
+}
