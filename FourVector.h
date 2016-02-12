@@ -16,10 +16,14 @@ protected:
 	double z;	//the z component 
 
 public:
-	FourVector(double, double, double, double);	//This creates a four-vector given components
+	FourVector(double =0.0, double =0.0, double =0.0, double =0.0);	//This creates a four-vector given components
 	//components are given as 
 	//t x y z 
+	//Default values are zeros
 
-	double operator*(FourVector& lh,FourVector& rh);	//The product 
+	double operator *(const FourVector&,const FourVector&);	//The Lorentz invaraint contraction of two fourvectors
+	FourVector& operator +(const FourVector&, const FourVector&);	//This adds two fourvectors component-wise
+	FourVector& operator *(const double,const FourVector&);	//Scalar multiplication of four vectors 
+	FourVector& operator -(const FourVector& lh, const FourVector& rh);	//This subtracts two fourvectors component wise 
 };
 #endif
