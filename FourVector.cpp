@@ -12,6 +12,13 @@ FourVector::FourVector(double arg0, double arg1, double arg2, double arg3){
 	z = arg3;
 }
 
+FourVector::FourVector(ThreeVector v, double arg0){
+	x = v.x;
+	y = v.y;
+	z = v.z;
+	t = arg0;
+}
+
 double FourVector::operator *(const FourVector& rh){
 	double sumx = (x)*(rh.x); 
 	double sumy = (y)*(rh.y);

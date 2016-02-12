@@ -15,10 +15,13 @@ protected:
 	double z;	//the z component 
 
 public:
-	FourVector(double =0.0, double =0.0, double =0.0, double =0.0);	//This creates a four-vector given components
+	FourVector(double, double, double, double);	//This creates a four-vector given components
 	//components are given as 
 	//t x y z 
 	//Default values are zeros
+
+	FourVector(ThreeVector,double);
+	//This creates a 4-vector from a given three vector and a time component 
 
 	double operator *(const FourVector&);	//The Lorentz invaraint contraction of two fourvectors
 	
