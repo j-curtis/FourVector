@@ -20,12 +20,13 @@ public:
 	//t x y z 
 	//Default values are zeros
 
-	double operator *(const FourVector&,const FourVector&);	//The Lorentz invaraint contraction of two fourvectors
+	double operator *(const FourVector&);	//The Lorentz invaraint contraction of two fourvectors
 	
-	FourVector& operator +(const FourVector&, const FourVector&);	//This adds two fourvectors component-wise
-	FourVector& operator *(const double,const FourVector&);	//Scalar multiplication of four vectors 
-	FourVector& operator -(const FourVector& lh, const FourVector& rh);	//This subtracts two fourvectors component wise 
+	FourVector operator +(const FourVector&);	//This adds two fourvectors component-wise
+	friend FourVector operator*(const double,const FourVector&);	//This is for scalar multiplication from the left 
+	FourVector operator -(const FourVector& rh);	//This subtracts two fourvectors component wise 
 
 	void Print();	//Prints the vector to cout
 };
+
 #endif

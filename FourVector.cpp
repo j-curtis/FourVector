@@ -12,27 +12,27 @@ FourVector::FourVector(double arg0, double arg1, double arg2, double arg3){
 	z = arg3;
 }
 
-double FourVector::operator *(const FourVector& lh, const FourVector& rh){
-	double sumx = (rh.x)*(lh.x); 
-	double sumy = (rh.y)*(lh.y);
-	double sumz = (rh.z)*(lh.z);
-	double sumt = (rh.t)*(lh.t);
+double FourVector::operator *(const FourVector& rh){
+	double sumx = (x)*(rh.x); 
+	double sumy = (y)*(rh.y);
+	double sumz = (z)*(rh.z);
+	double sumt = (t)*(rh.t);
 
 	return sumx + sumy + sumz - sumt;
 }
 
-FourVector& FourVector::operator +(const FourVector& lh, const FourVector rh){
+FourVector FourVector::operator +(const FourVector& rh){
 	FourVector sum(0.0,0.0,0.0,0.0);
 
-	sum.t = (lh.t + rh.t);
-	sum.x = (lh.x + rh.x);
-	sum.y = (lh.y + rh.y);
-	sum.z = (lh.z + rh.z);
+	sum.t = (t + rh.t);
+	sum.x = (x + rh.x);
+	sum.y = (y + rh.y);
+	sum.z = (z + rh.z);
 
-	return &sum;
+	return sum;
 }
 
-FourVector& FourVector::operator *(const double c, const FourVector& rh){
+FourVector operator *(const double c, const FourVector& rh){
 	FourVector vec(0.0,0.0,0.0,0.0);
 
 	vec.t = c*(rh.t);
@@ -40,11 +40,11 @@ FourVector& FourVector::operator *(const double c, const FourVector& rh){
 	vec.y = c*(rh.y);
 	vec.z = c*(rh.z);
 
-	return &vec;
+	return vec;
 }
 
-FourVector& FourVector::operator -(const FourVector& lh, const FourVector& rh){
-	return (lh + ( (-1.0)*rh ) );	//Subtraction as addition of additive inverse 
+FourVector FourVector::operator -(const FourVector& rh){
+	return ( (*this) + ( (-1.0)*rh ) );	//Subtraction as addition of additive inverse 
 }
 
 
